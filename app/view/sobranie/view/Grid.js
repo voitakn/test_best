@@ -8,9 +8,6 @@ Ext.define('Tlapp.apps.sobranie.view.Grid', {
     selModel: Ext.create('Ext.selection.CheckboxModel', {
         listeners: {
             selectionchange: function(sm, selections) {
-                console.log(sm);
-                console.log(selections);
-                console.log(this.view);
                 this.view.open_sdata = selections;
             }
         }
@@ -35,7 +32,6 @@ Ext.define('Tlapp.apps.sobranie.view.Grid', {
             text:'S-21',
             handler: function(btn)
             {
-                console.log(btn.up('grid'));
                 var open_s = btn.up('grid').view.open_sdata;
                 var url_text = [];
                 for(var i=0; i<open_s.length; i++)
@@ -47,10 +43,4 @@ Ext.define('Tlapp.apps.sobranie.view.Grid', {
             }
         }]
     }],
-    onButtonClick: function(btn, scope)
-    {
-        console.log('onButtonClick');
-        console.log(btn);
-        console.log(scope);
-    }
 });

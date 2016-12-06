@@ -1,7 +1,4 @@
 Ext.define('TT.view.exp_holls.Controller', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.exp_holls',
-    init: function() {
-        console.log('controller.exp_holls');
-    }
+    alias: 'controller.exp_holls'
 });

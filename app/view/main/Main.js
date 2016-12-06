@@ -10,7 +10,6 @@ Ext.define('TT.view.main.Main', {
     ],
     controller: 'main',
     initComponent: function() {
-        console.log('Main.initComponent');
         this.items = [
             {
                 xtype: 'container',

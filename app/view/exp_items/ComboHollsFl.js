@@ -21,7 +21,6 @@ Ext.define('TT.view.exp_items.ComboHollsFl', {
         var self = this;
         var holl_store = Ext.data.StoreManager.lookup('exp_holls_store');
         if(holl_store && holl_store.data.length > 0) {
-            console.log('!!! holl_store', holl_store.data.length);
             self.createComboStore(holl_store);
         }
         else {
@@ -40,7 +39,6 @@ Ext.define('TT.view.exp_items.ComboHollsFl', {
         this.callParent(arguments);
     },
     createComboStore: function(holl_store) {
-        console.log('Holls.createComboStore()', holl_store.data, this);
         var holls_data = [{id: 0, title_holl: 'Все'}];
         holl_store.each(function(row) {
             var new_row = {

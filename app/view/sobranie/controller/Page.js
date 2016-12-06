@@ -31,7 +31,6 @@ Ext.define('Tlapp.apps.sobranie.controller.Page', {
         }
     ],
     init: function() {
-        console.log('Tlapp.apps.sobranie.controller.Page - init()');
         this.control({
             'sobranie-view-filter #add_jw_sobr_form': {
                 click: this.show_sobr_form
@@ -58,8 +57,6 @@ Ext.define('Tlapp.apps.sobranie.controller.Page', {
     radio_change: function(radio, newValue, oldValue, eOpts)
     {
         var store = Ext.data.StoreManager.lookup('Tlapp.apps.sobranie.store.Sobranies');
-        console.log('store=');
-        console.log(store);
         var params = {};
         params[newValue.type_sob] = 1;
         store.load({
@@ -70,11 +67,8 @@ Ext.define('Tlapp.apps.sobranie.controller.Page', {
     },
     show_sobr_form: function()
     {
-        console.log('show_sobr_form()');
         var sobr_form = Ext.create('Tlapp.apps.sobranie.view.Form');
         sobr_form.show();
-
-        console.log(sobr_form);
     },
     save_sobr_form: function(button)
     {
@@ -90,8 +84,6 @@ Ext.define('Tlapp.apps.sobranie.controller.Page', {
         {
             store.add(values);
         }
-
-        console.log(values);
     },
     sobr_edit_form: function(grid, record)
     {

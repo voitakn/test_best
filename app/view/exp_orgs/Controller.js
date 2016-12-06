@@ -2,11 +2,7 @@ Ext.define('TT.view.exp_orgs.Controller', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.exp_orgs',
     org_load: false,
-    init: function() {
-        console.log('controller.exp_orgs');
-    },
     clickHolls: function(checkgroup, record, index, eOpts) {
-        console.log('clickHolls', checkgroup.getSelection());
         if(!this.org_load) {
             this.loadOrgs(checkgroup.getSelection());
         }
@@ -16,7 +12,6 @@ Ext.define('TT.view.exp_orgs.Controller', {
         this.loadOrgs(selections);
     },
     loadOrgs: function(selections) {
-        console.log('loadOrgs', selections);
         var org_l = this.org_load;
         var holls, params={};
         if(selections.length > 0)
@@ -47,7 +42,6 @@ Ext.define('TT.view.exp_orgs.Controller', {
     },
     itemEdit: function(grid, rowIndex, colIndex) {
         var record = grid.getStore().getAt(rowIndex);
-        console.log('itemEdit', record);
         var view = Ext.create('TT.view.exp_orgs.Form');
         view.down('form').loadRecord(record);
     },
@@ -56,7 +50,6 @@ Ext.define('TT.view.exp_orgs.Controller', {
         var form = button.up('form'),
             record = form.getRecord(),
             values = form.getValues();
-        console.log('saveItem', values);
         if(record)
         {
             record.set(values);

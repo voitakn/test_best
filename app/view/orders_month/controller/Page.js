@@ -26,7 +26,6 @@ Ext.define('Tlapp.apps.orders_month.controller.Page', {
         'Tlapp.apps.orders_month.view.Page'
     ],
     init: function() {
-        console.log('Tlapp.apps.orders_month.controller.Page - init()');
         this.control({
             'orders-month-view-filter radiogroup': {
                 'change': this.radio_change

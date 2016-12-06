@@ -4,9 +4,6 @@ Ext.define('TT.view.main.MainController', {
     menu_obj: {},
     menu_root: [],
     tree_obj: {},
-    init: function() {
-        console.log('controller.main');
-    },
     onClickMenu: function(menu, e){
         if(menu.go_to != "") {
             this.redirectTo(menu.go_to);

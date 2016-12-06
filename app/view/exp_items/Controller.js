@@ -1,15 +1,10 @@
 Ext.define('TT.view.exp_items.Controller', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.exp_items',
-    init: function() {
-        console.log('controller.exp_items');
-    },
     itemForm: function(button) {
-        console.log('itemForm', button);
         var view = Ext.create('TT.view.exp_items.Form');
     },
     selectHollFl: function(combo, record) {
-        console.log('selectHollFl', record);
         var orgCombo = Ext.ComponentQuery.query('exp-items-combo-orgs-fl')[0];
         var org_store = orgCombo.getStore();
         org_store.clearFilter();
@@ -19,7 +14,6 @@ Ext.define('TT.view.exp_items.Controller', {
         orgCombo.setValue(0);
     },
     selectHoll: function(combo, record) {
-        console.log('selectHoll', record);
         var orgCombo = Ext.ComponentQuery.query('exp-items-combo-orgs')[0];
         var org_store = orgCombo.getStore();
         org_store.clearFilter();
@@ -29,7 +23,6 @@ Ext.define('TT.view.exp_items.Controller', {
         orgCombo.select(org_store.getAt(0));
     },
     onRenderForm: function(win_form) {
-        console.log('onRenderForm()', win_form);
         var holl_combo = Ext.ComponentQuery.query('exp-items-combo-holls')[0];
         var holl_store = holl_combo.getStore();
         holl_combo.select(holl_store.getAt(0));
@@ -37,7 +30,6 @@ Ext.define('TT.view.exp_items.Controller', {
     changeType: function(radiogroup, newValue, oldValue, eOpts) {
         var form = radiogroup.up('form');
         var combo_orgs = form.down('exp-items-combo-orgs');
-        console.log('changeType', newValue, radiogroup, form, combo_orgs);
         if(newValue.ex_type == 2) {
             combo_orgs.hide();
         } else {
@@ -46,7 +38,6 @@ Ext.define('TT.view.exp_items.Controller', {
     },
     itemEdit: function(grid, rowIndex, colIndex) {
         var record = grid.getStore().getAt(rowIndex);
-        console.log('itemEdit', record);
         var view = Ext.create('TT.view.exp_items.Form');
         view.down('form').loadRecord(record);
     },
@@ -55,7 +46,6 @@ Ext.define('TT.view.exp_items.Controller', {
         var form = button.up('form'),
             record = form.getRecord(),
             values = form.getValues();
-        console.log('saveItem', values);
         values.amount = Math.abs(values.amount);
         if(record)
         {
@@ -90,7 +80,6 @@ Ext.define('TT.view.exp_items.Controller', {
         })
     },
     exportItems: function() {
-        console.log('exportItems');
         var flt = this.lookupReference('filterItems');
         var form = flt.down('form');
         var values = form.getValues();

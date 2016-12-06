@@ -6,7 +6,6 @@ Ext.define('Tlapp.apps.sobranie.view.Filter', {
         align: 'center'
     },
     initComponent: function() {
-        console.log('Tlapp.apps.sobranie.view.Filter - init()');
         this.items = [
             {
                 xtype: 'button',

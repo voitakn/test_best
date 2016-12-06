@@ -17,7 +17,6 @@ Ext.define('TT.controller.Root', {
     }],
 
     init: function() {
-        console.log(Ext.getBody().getViewSize(), navigator);
         var sessionHash = Ext.util.Cookies.get('isAutorise');
         if(sessionHash == undefined){
             this.redirectTo('login');
@@ -41,7 +40,6 @@ Ext.define('TT.controller.Root', {
     },
 
     showLogin: function(){
-        console.log('showLogin()');
         this.logout();
         var viewport = this.getMainViewPort();
         viewport.removeAll();
@@ -51,7 +49,6 @@ Ext.define('TT.controller.Root', {
     },
 
     showModule: function() {
-        console.log('showModule');
         var hash = Ext.util.History.getHash();
         if(hash == 'get_satus') {
             this.getUserStatus();
@@ -66,15 +63,10 @@ Ext.define('TT.controller.Root', {
         var hsplit_slash = hash.split('/'),
             hsplit = hsplit_slash[0].split('?'),
             module = hsplit[0];
-        console.log('this.mainContainer', this.mainContainer, hash, module);
         this.mainContainer.removeAll();
-        //try {
-            var moduleObj = Ext.create('TT.view.' + module + '.Module');
-            this.mainContainer.add(moduleObj);
-        //} catch(e) {
-        //    console.log('ERROR LOAD', e);
-        //    this.redirectTo('error404');
-        //}
+
+        var moduleObj = Ext.create('TT.view.' + module + '.Module');
+        this.mainContainer.add(moduleObj);
     },
     getUserStatus: function() {
         Ext.Ajax.request({
@@ -102,7 +94,6 @@ Ext.define('TT.controller.Root', {
         }
     },
     logout: function() {
-        console.log('Root.logout()');
         Ext.util.Cookies.clear('isAutorise');
         Adm.user = {};
         Ext.Ajax.request({
